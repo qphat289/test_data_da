@@ -105,6 +105,23 @@ Data Sources → Processing Layer → Serving Layer → Presentation Layer
 - **Business Rule Validation**: Trade amount limits, user permission checks, regulatory compliance
 - **Data Completeness**: Missing field detection and automatic backfill procedures
 - **Consistency Checks**: Cross-system validation ensuring financial data accuracy
+
+---
+
+#### Data Transformation Pipeline: Raw Data to Business Insights
+
+**Step 1: Data Ingestion & Cleaning**
+- **Raw Data Collection**: Capture trading events, user activities, financial transactions
+- **Data Cleaning**: Remove duplicates, handle missing values, fix data format inconsistencies
+- **Validation**: Apply business rules (valid trading pairs, user permissions, amount limits)
+- **Standardization**: Convert currencies, normalize timestamps, standardize user identifiers
+
+**Step 2: Data Enrichment & Feature Engineering**
+- **User Enrichment**: Add user tier info, KYC status, account age, geographic data
+- **Trading Enrichment**: Calculate trade sizes, fee rates, market impact, trading patterns
+- **Temporal Features**: Extract hour of day, day of week, seasonality patterns
+- **Behavioral Features**: Trading frequency, volume trends, platform usage patterns
+
 ---
 
 </details>
@@ -376,17 +393,13 @@ CREATE TABLE system_metrics (
 
 **Core User KPIs**
 - **Daily Active Users (DAU)**: `COUNT(DISTINCT user_id with trades today)`
-  - Target: `15,000` users
   - Business Context: Platform engagement indicator
 
 - **User Conversion Funnel**: Track user journey progression
   - Registration → KYC: `(KYC completed / Total registrations) × 100`
   - KYC → First Trade: `(First trades / KYC completed) × 100`
-  - Targets: `85%` → `70%` conversion rates
 
 - **User Retention**: `(Active users in period / Users at start) × 100`
-  - 7-day retention target: `60%`
-  - 30-day retention target: `40%`
 
 ---
 
@@ -394,15 +407,12 @@ CREATE TABLE system_metrics (
 
 **Volume & Activity KPIs**
 - **Daily Trading Volume**: `SUM(quantity × price) for all trades today`
-  - Target: `$50M` daily volume
   - Business Context: Primary revenue driver
 
 - **Revenue per Trade**: `Total fees collected / Number of trades`
   - Calculation: `SUM(fee_amount) / COUNT(trades)`
-  - Target: `$12` average fee per trade
 
 - **Market Efficiency**: `Order fill rate = Executed orders / Total orders`
-  - Target: `>95%` fill rate
   - Business Context: Platform reliability
 
 ---
@@ -412,7 +422,6 @@ CREATE TABLE system_metrics (
 **Primary Revenue Metrics**
 - **Daily Revenue**: `SUM(all fees collected today)`
   - Formula: `Trading fees + Withdrawal fees + Other fees`
-  - Target: `$125K` daily revenue
 
 - **Revenue by User Tier**: Segment revenue analysis
   - VIP users: `60%` of revenue (top tier)
@@ -420,7 +429,6 @@ CREATE TABLE system_metrics (
   - Basic users: `10%` of revenue (entry tier)
 
 - **Revenue Growth Rate**: `((Current month - Previous month) / Previous month) × 100`
-  - Target: `15%` monthly growth
 
 ---
 
@@ -429,7 +437,6 @@ CREATE TABLE system_metrics (
 **Churn Definition & Calculation**
 - **User Churn**: No trading activity for `30+ days`
 - **Monthly Churn Rate**: `(Users who churned / Total users at month start) × 100`
-- **Target**: `<15%` monthly churn
 
 **Churn Risk Indicators**
 - Days since last trade `>7 days`: Medium risk
@@ -568,7 +575,7 @@ Analytics Knowledge Base/
 
 ---
 
-#### Phase 3: AI & Automation
+#### Phase 3: ML/AI & Automation
 
 **Smart Features**
 - Automated insights generation
