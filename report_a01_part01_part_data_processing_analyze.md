@@ -107,6 +107,12 @@ Data Sources → Processing Layer → Serving Layer → Presentation Layer
 - **Consistency Checks**: Cross-system validation ensuring financial data accuracy
 
 ---
+**Transformation Flow Example**
+```
+Raw Trading Event → Clean & Validate → Enrich with User Data → 
+Aggregate by Time/User → Calculate Business Metrics → 
+Generate Insights → Update Dashboards → Trigger Alerts
+```
 
 #### Data Transformation Pipeline: Raw Data to Business Insights
 
@@ -121,6 +127,24 @@ Data Sources → Processing Layer → Serving Layer → Presentation Layer
 - **Trading Enrichment**: Calculate trade sizes, fee rates, market impact, trading patterns
 - **Temporal Features**: Extract hour of day, day of week, seasonality patterns
 - **Behavioral Features**: Trading frequency, volume trends, platform usage patterns
+
+**Step 3: Aggregation & Metric Calculation**
+- **User Metrics**: Daily active users, trading frequency, volume per user, churn indicators
+- **Trading Metrics**: Volume by pair, order fill rates, price impact analysis
+- **Revenue Metrics**: Fee collection, revenue by user segment, profitability analysis
+- **Risk Metrics**: Large transaction monitoring, unusual pattern detection
+
+**Step 4: Business Intelligence Layer**
+- **KPI Calculation**: Transform aggregated data into business metrics (DAU, revenue, churn rate)
+- **Trend Analysis**: Calculate growth rates, moving averages, seasonality adjustments
+- **Segmentation**: Group users by behavior, value, risk level for targeted analysis
+- **Predictive Features**: Create features for ML models (churn prediction, fraud detection)
+
+**Step 5: Insight Generation & Visualization**
+- **Dashboard Preparation**: Create summary tables optimized for dashboard queries
+- **Alert Generation**: Identify anomalies, threshold breaches, business rule violations
+- **Report Automation**: Generate scheduled reports with key insights and recommendations
+- **Interactive Analytics**: Enable drill-down capabilities and ad-hoc analysis
 
 ---
 
